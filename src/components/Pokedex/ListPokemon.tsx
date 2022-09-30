@@ -28,7 +28,6 @@ export const ListPokemon: React.FC = () => {
 
   return (
     <div>
-      <h1>POKEMON LIST</h1>
       <div>
         <button
           onClick={() =>
