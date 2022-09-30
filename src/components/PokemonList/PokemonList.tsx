@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { usePokedex } from "../../state/usePokedex";
+import { Container, Arrow, List, Item } from "./style";
 
 export const PokemonList: React.FC = () => {
   const {
@@ -27,45 +28,42 @@ export const PokemonList: React.FC = () => {
   }
 
   return (
-    <div>
-      <div>
-        <button
+    <Container>
+      <Arrow
+        onClick={() =>
+          getPokemons({
+            page: currentPage - 1,
+            pageSize: 20,
+          })
+        }
+      />
+      <List>
+        {data.map((poke, i) => (
+          <Item
+            key={i}
+            onClick={() => {
+              getPokemonImg({
+                page: 0,
+                pageSize: 20,
+                url: poke.url,
+              });
+            }}
+          >
+            No{i} {poke.name}
+          </Item>
+        ))}
+      </List>
+      {hasMore && (
+        <Arrow
+          reverse
           onClick={() =>
             getPokemons({
-              page: currentPage - 1,
+              page: currentPage + 1,
               pageSize: 20,
             })
           }
-        >
-          prev
-        </button>
-        {hasMore && (
-          <button
-            onClick={() =>
-              getPokemons({
-                page: currentPage + 1,
-                pageSize: 20,
-              })
-            }
-          >
-            Next
-          </button>
-        )}
-      </div>
-      {data.map((poke, i) => (
-        <div
-          key={i}
-          onClick={() => {
-            getPokemonImg({
-              page: 0,
-              pageSize: 20,
-              url: poke.url,
-            });
-          }}
-        >
-          {poke.name}
-        </div>
-      ))}
-    </div>
+        />
+      )}
+    </Container>
   );
 };

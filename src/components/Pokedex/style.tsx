@@ -9,10 +9,8 @@ export const Center = styled.div`
 `;
 export const Container = styled.div`
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 300px 200px;
   grid-gap: 2rem;
-  max-width: 80rem;
-  height: 500px;
 `;
 export const Ball = styled.div`
   z-index: -1;
