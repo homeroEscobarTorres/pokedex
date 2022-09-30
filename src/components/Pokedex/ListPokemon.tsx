@@ -1,9 +1,8 @@
 import React, { useEffect } from "react";
-import { useCounterState } from "../state/useCounterState";
+import { usePokedex } from "../../state/usePokedex";
 
 export const ListPokemon: React.FC = () => {
   const {
-    score,
     getPokemons,
     isLoading,
     isError,
@@ -11,7 +10,7 @@ export const ListPokemon: React.FC = () => {
     hasMore,
     currentPage,
     getPokemonImg,
-  } = useCounterState();
+  } = usePokedex();
 
   useEffect(() => {
     getPokemons({
@@ -30,9 +29,6 @@ export const ListPokemon: React.FC = () => {
   return (
     <div>
       <h1>POKEMON LIST</h1>
-      <div>
-        <h6>counter: {score}</h6>
-      </div>
       <div>
         <button
           onClick={() =>

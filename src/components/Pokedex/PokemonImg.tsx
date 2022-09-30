@@ -1,7 +1,7 @@
-import { useCounterState } from "../state/useCounterState";
+import { usePokedex } from "../../state/usePokedex";
 
 export const PokemongImg: React.FC = () => {
-  const { imgPokemon } = useCounterState();
+  const { imgPokemon } = usePokedex();
 
   return <img src={imgPokemon} alt="img-single-pokemon" />;
 };

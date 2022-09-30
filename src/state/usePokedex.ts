@@ -6,26 +6,19 @@ import {
   isLoadingSelector,
   pageSizeSelector,
   pokemonSelector,
-  scoreSelector,
   totalEntitiesSelector,
-  winSelector,
   imgPokemonSelector,
-} from "./counterSelector";
+} from "./pokedexSelector";
 import {
-  increment,
-  decrement,
-  resetScore,
-  fetchPokemonsThunk,
+  getAllPokemonsThunk,
   fetchPokemonImgThunk,
   FetchPokemonArgs,
-} from "./counterSlice";
+} from "./pokedexSlice";
 import { useAppDispatch, useAppSelector } from "./store";
 
-export const useCounterState = () => {
+export const usePokedex = () => {
   const dispatch = useAppDispatch();
 
-  const score = useAppSelector(scoreSelector);
-  const win = useAppSelector(winSelector);
   const pageSize = useAppSelector(pageSizeSelector);
   const currentPage = useAppSelector(currentPageSelector);
   const totalEntities = useAppSelector(totalEntitiesSelector);
@@ -37,38 +30,20 @@ export const useCounterState = () => {
 
   const getPokemons = useCallback(
     (arg: FetchPokemonArgs) => {
-      return dispatch(fetchPokemonsThunk(arg));
+      return dispatch(getAllPokemonsThunk(arg));
     },
     [dispatch]
   );
 
   const getPokemonImg = useCallback(
     (arg: FetchPokemonArgs) => {
-      console.log("arg.url", arg.url);
       return dispatch(fetchPokemonImgThunk(arg.url));
     },
     [dispatch]
   );
 
-  const incrementScore = useCallback(() => {
-    dispatch(increment());
-  }, [dispatch]);
-
-  const decrementScore = useCallback(() => {
-    dispatch(decrement());
-  }, [dispatch]);
-
-  const resetScoreValue = useCallback(() => {
-    dispatch(resetScore());
-  }, [dispatch]);
-
   return {
     getPokemons,
-    score,
-    win,
-    incrementScore,
-    decrementScore,
-    resetScoreValue,
     pageSize,
     currentPage,
     totalEntities,
