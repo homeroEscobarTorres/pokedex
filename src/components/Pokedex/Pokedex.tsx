@@ -1,16 +1,17 @@
-import { usePokedex } from "../../state/usePokedex";
-import { ListPokemon } from "./ListPokemon";
-import { PokemongImg } from "./PokemonImg";
+import { PokemonList } from "../PokemonList";
+import { PokedexInfo } from "../PokedexInfo";
+import { Center, Container, Ball, BallInner } from "./style";
 
-export function Pokedex() {
-  const { imgPokemon } = usePokedex();
-
+export const Pokedex: React.FC = () => {
   return (
-    <div>
-      <div>{imgPokemon && <PokemongImg />}</div>
-      <div>
-        <ListPokemon />
-      </div>
-    </div>
+    <Center>
+      <Container>
+        <Ball>
+          <BallInner />
+        </Ball>
+        <PokedexInfo />
+        <PokemonList />
+      </Container>
+    </Center>
   );
-}
+};
