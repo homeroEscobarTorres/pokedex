@@ -1,3 +1,7 @@
+html {
+  font-size: 62.5%;
+}
+
 body,
 html,
 #root {
@@ -7,7 +11,8 @@ html,
 }
 
 body {
-  height: 100%;
+  font-family: "pokemon";
+  font-size: 1.6rem;
   background: repeating-linear-gradient(
     #4f8c34,
     #4f8c34 10px,
