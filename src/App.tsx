@@ -1,12 +1,12 @@
 import React from "react";
 import { Provider } from "react-redux";
-import { Counter } from "./components/Counter";
+import { Pokedex } from "./components/Pokedex";
 import { store } from "./state/store";
 
 const App: React.FC = () => {
   return (
     <Provider store={store}>
-      <Counter />
+      <Pokedex />
     </Provider>
   );
 };

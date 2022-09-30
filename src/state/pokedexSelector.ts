@@ -1,17 +1,7 @@
 import { createSelector } from "@reduxjs/toolkit";
 import { RootState } from "./store";
 
-const counterStateSelector = (state: RootState) => state.counter;
-
-export const scoreSelector = createSelector(
-  counterStateSelector,
-  (state) => state.score
-);
-
-export const winSelector = createSelector(
-  counterStateSelector,
-  (state) => state.win
-);
+const counterStateSelector = (state: RootState) => state.pokedex;
 
 export const isLoadingSelector = createSelector(
   counterStateSelector,
