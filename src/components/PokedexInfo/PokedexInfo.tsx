@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { PokemongImg } from "./PokemonImg";
+import { PokemongImg } from "../Pokedex/PokemonImg";
 
 const Title = styled.h1`
   text-transform: uppercase;

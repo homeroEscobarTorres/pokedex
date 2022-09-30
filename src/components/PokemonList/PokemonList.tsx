@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { usePokedex } from "../../state/usePokedex";
 
-export const ListPokemon: React.FC = () => {
+export const PokemonList: React.FC = () => {
   const {
     getPokemons,
     isLoading,
