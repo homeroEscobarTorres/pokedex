@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { PokemongImg } from "../Pokedex/PokemonImg";
+import { usePokedex } from "../../state/usePokedex";
 
 const Title = styled.h1`
   text-transform: uppercase;
@@ -18,11 +18,13 @@ const PokemonImagesContainer = styled.div`
 `;
 
 export function PokedexInfo() {
+  const { imgPokemon } = usePokedex();
+
   return (
     <div style={{ display: "flex", flexDirection: "column" }}>
       <Title>POKEDEX</Title>
       <PokemonImagesContainer>
-        <PokemongImg />
+        <img src={imgPokemon} alt="img-single-pokemon" />;
       </PokemonImagesContainer>
     </div>
   );

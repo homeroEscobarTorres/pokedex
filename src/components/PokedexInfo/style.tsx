@@ -1,3 +1,3 @@
 import styled from "styled-components";
 
-const a = styled.div``;
+export const a = styled.div``;
